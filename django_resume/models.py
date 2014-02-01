@@ -34,11 +34,9 @@ class PersonalInfo(models.Model):
 
 class Education(models.Model):
     name = models.CharField(max_length=250)
-    location = models.CharField(max_length=250)
-    school_url = models.URLField('School URL')
     start_date = models.DateField()
     completion_date = models.DateField()
-    summary = models.TextField()
+    summary = models.TextField(blank=True)
     is_current = models.BooleanField(default=False)
 
     class Meta:
@@ -69,6 +67,14 @@ class Education(models.Model):
     def __unicode__(self):
         return ' '.join([self.name, self.edu_date_range()])
 
+class School(models.Model):
+    name = models.CharField(max_length=250)
+    location = models.CharField(max_length=250)
+    school_url = models.URLField('School URL')
+    education = models.ForeignKey('Education')
+
+    def __unicode__(self):
+        return self.name
 
 class Job(models.Model):
     company = models.CharField(max_length=250)

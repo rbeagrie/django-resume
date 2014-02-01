@@ -102,8 +102,15 @@
     <ul id="edu-list" class="vcalendar">
     {% for edu in education %}
      <li class="education vevent vcard">
+      <span class="education">{{ edu.name }}</span>
       <span class="period"><abbr class="dtstart" title="{{ edu.full_start_date }}">{{ edu.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ edu.full_end_ate }}">{{ edu.formatted_end_date }}</abbr></span> - 
-      <span class="org"><a rel="employer" href="{{ edu.school_url }}" class="summary url" title="{{ edu.name }}">{{ edu.name }}</a></span> - <span class="location">{{ edu.location }}</span>
+      {%for school in edu.school_set.all %}
+      <span class="org"><a rel="employer" href="{{ school.school_url }}" class="summary url" title="{{ school.name }}">{{ school.name }}</a></span> - <span class="location">{{ school.location }}</span>
+      {% if not forloop.last %}
+      /
+      {% endif %}
+      {% endfor %}
+      
       <div class="summary"> {{ edu.summary }}</div>
      </li>
      {% endfor %}

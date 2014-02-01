@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from models import Overview, PersonalInfo, Education, Job,\
-    Accomplishment, Skillset, Skill 
+    Accomplishment, Skillset, Skill, School
 
 class AccomplishmentAdmin(admin.ModelAdmin):
     list_select_related = True
@@ -18,3 +18,4 @@ admin.site.register(Job)
 admin.site.register(Accomplishment, AccomplishmentAdmin)
 admin.site.register(Skillset)
 admin.site.register(Skill, SkillAdmin)
+admin.site.register(School)
