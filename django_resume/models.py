@@ -19,6 +19,7 @@ class PersonalInfo(models.Model):
     region_shorthand = models.CharField(max_length=64, help_text="e.g. shorthand (abbr), MA for Massachusetts")
     email = models.EmailField()
     twitter = models.CharField(max_length=255, help_text="Twitter handle", blank=True)
+    github = models.CharField(max_length=255, help_text="Github username", blank=True)
     blog = models.URLField(max_length=255, help_text="URL to a personal blog", blank=True)
     linkedin = models.URLField(blank=True)
     

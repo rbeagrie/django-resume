@@ -46,6 +46,12 @@
         Twitter: <a href="http://twitter.com/{{ personal_info.twitter }}">@{{ personal_info.twitter }}</a>
     </div>
     {% endif %}
+    
+    {% if personal_info.github %}
+    <div class="github">
+        Github: <a href="http://github.com/{{ personal_info.github }}">{{ personal_info.github }}</a>
+    </div>
+    {% endif %}
   </div> 
   {% endwith %}
   <!-- End Personal Contact Information --> 
