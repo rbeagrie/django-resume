@@ -24,12 +24,26 @@
     </div>
     
     {% if personal_info.email %}
-    <div class="email"><a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a></div>
+    <div class="email">
+        Email: <a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a>
+    </div>
     {% endif %}
     
     {% if personal_info.linkedin %}
     <div class="linkedin">
-      <a href="{{ personal_info.linkedin }}">{{ personal_info.linkedin|slice:"11:" }}</a>
+        LinkedIn: <a href="{{ personal_info.linkedin }}">{{ personal_info.linkedin|slice:"11:" }}</a>
+    </div>
+    {% endif %}
+    
+    {% if personal_info.blog %}
+    <div class="blog">
+        Blog: <a href="{{ personal_info.blog }}">{{ personal_info.blog|slice:"7:-1" }}</a>
+    </div>
+    {% endif %}
+    
+    {% if personal_info.twitter %}
+    <div class="twitter">
+        Twitter: <a href="http://twitter.com/{{ personal_info.twitter }}">@{{ personal_info.twitter }}</a>
     </div>
     {% endif %}
   </div> 
