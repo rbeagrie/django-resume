@@ -76,23 +76,30 @@ class School(models.Model):
     def __unicode__(self):
         return self.name
 
+class JobCategory(models.Model):
+    name = models.CharField(max_length=250)
+
+    @staticmethod
+    def get_other():
+        return JobCategory.objects.get_or_create(name='Other')
+
+    def __unicode__(self):
+        return self.name
+
 class Job(models.Model):
-    company = models.CharField(max_length=250)
-    location = models.CharField(max_length=250)
+
+    category = models.ForeignKey(JobCategory, default=1)
     title = models.CharField(max_length=250)
-    company_url = models.URLField('Company URL')
     description = models.TextField(blank=True)
     start_date = models.DateField()
     completion_date = models.DateField()
     is_current = models.BooleanField(default=False)
     is_public = models.BooleanField(default=True)
-    company_image = models.CharField(max_length=250, blank=True, 
-        help_text='path to company image, local or otherwise')
 
     class Meta:
         db_table = 'jobs'
         ordering = ['-completion_date','-start_date']
-        
+
     def job_date_range(self):
         return ''.join(['(', self.formatted_start_date(),'-', 
             self.formatted_end_date(), ')'])
@@ -116,7 +123,19 @@ class Job(models.Model):
             return self.completion_date.strftime("%b %Y")
 
     def __unicode__(self):
-        return ' '.join([self.company, self.job_date_range()])
+        return ': '.join([self.title, self.job_date_range()])
+
+class Company(models.Model):
+
+    job = models.ForeignKey('Job')
+    company = models.CharField(max_length=250)
+    location = models.CharField(max_length=250)
+    company_url = models.URLField('Company URL')
+    company_image = models.CharField(max_length=250, blank=True, 
+        help_text='path to company image, local or otherwise')
+
+    def __unicode__(self):
+        return self.company
 
 class Accomplishment(models.Model):
     description = models.TextField()
