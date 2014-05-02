@@ -67,6 +67,15 @@ class Education(models.Model):
     def __unicode__(self):
         return ' '.join([self.name, self.edu_date_range()])
 
+    def summary_as_list(self):
+        return self.summary.split('|')
+
+    def has_summary_items(self):
+        if self.summary == "":
+            return False
+        else:
+            return True
+
 class School(models.Model):
     name = models.CharField(max_length=250)
     location = models.CharField(max_length=250)
@@ -147,7 +156,7 @@ class Accomplishment(models.Model):
         ordering = ['order']
 
     def __unicode__(self):
-        return ''.join([self.job.company, '-', self.description[0:50], '...'])
+        return ''.join([self.job.title, '-', self.description[0:50], '...'])
 
 class Skillset(models.Model):
     name = models.CharField(max_length=250)
