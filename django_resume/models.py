@@ -1,5 +1,5 @@
 import time
-
+from datetime import datetime
 from django.db import models 
 
 class Overview(models.Model):
@@ -133,6 +133,12 @@ class Job(models.Model):
 
     def __unicode__(self):
         return ': '.join([self.title, self.job_date_range()])
+
+    def end_year(self):
+        if not self.is_current:
+            return self.completion_date.year
+        else:
+            return datetime.now().year
 
 class Company(models.Model):
 
