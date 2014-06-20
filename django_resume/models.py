@@ -87,6 +87,7 @@ class School(models.Model):
 
 class JobCategory(models.Model):
     name = models.CharField(max_length=250)
+    order = models.IntegerField(default=0)
 
     @staticmethod
     def get_other():
@@ -94,6 +95,9 @@ class JobCategory(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        ordering = ['order']
 
 class Job(models.Model):
 
