@@ -102,10 +102,7 @@
       {% endfor %}</h3>
   <h4><span class="period"><abbr class="dtstart" title="{{ edu.full_start_date }}">{{ edu.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ edu.full_end_ate }}">{{ edu.formatted_end_date }}</abbr></span></h4>
       
-  <div class="summary"> {% if edu.has_summary_items %}<ul>{% for edu_item in edu.summary_as_list %}
-      <li>{{ edu_item }}</li>
-  {% endfor %} 
-  </ul>{% endif %}</div>
+  <div class="summary"> </div>
      {% endfor %}
 
     <h1>Skills</h1>
