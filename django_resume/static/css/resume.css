@@ -1,0 +1,136 @@
+body {
+    margin: auto;
+    padding-right: 1em;
+    padding-left: 1em;
+    width: 80%;
+    color: black;
+    font-family: Garamond, sans-serif;
+    font-size: 15px;
+    line-height: 140%;
+    color: #333; 
+}
+#name {
+    font-size: 235%;
+    margin-top: 1em;
+    border-bottom: none;
+    padding-bottom: 0px;
+}
+nav {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+#contact {
+    display: none;
+}
+#contact + ul {
+    margin: auto;
+    padding-left: 0px;
+}
+#contact + ul li {
+    list-style: none;
+    display: inline;
+    margin: 0;
+    font-size: 80%;
+}
+#references + p {
+    float: left;
+    margin: auto;
+}
+#references + p + p {
+    float: left;
+    margin: auto;
+    padding-left: 8em;
+}
+h1, h2, h3, h4, h5, h1 a, h2 a, h3 a, h4 a, h5 a { 
+    font-family: Helvetica;
+    font-weight: bold;
+    color: #374555;
+    text-decoration: none;
+}
+.info-email, .info-blog, .info-twitter, .info-github {
+    display: inline;
+    font-weight: bold;
+    color: #374555;
+    font-size: 80%;
+}
+#contactinfo{
+    margin-top: 5em;
+}
+.adr {
+    display: inline;
+    font-size: 80%;
+}
+.email a, .blog a, .twitter a, .github a {
+    font-weight: normal;
+    color: #333;
+}
+strong {
+    color: #374555;
+}
+h1 {
+        font-size: 130%;
+        display: block;
+        clear: both;
+        margin-top: 1.9em;
+        border-bottom: 1px solid #374555;
+        padding-bottom: 0.15em;
+}
+h2 {
+        font-size: 110%;
+        display: block;
+        clear: both;
+        margin-top: 1.6em;
+}
+
+h3 {
+        font-size: 95%;
+        float: left;
+        margin-top: 0;
+}
+
+h4 {
+        font-size: 90%;
+        font-style: italic;
+        float: right;
+        margin-top: 0;
+        margin-right: 35px;
+        color: #4f6277;
+}
+
+h5 {
+        font-size: 90%;
+        font-style: italic;
+}
+
+h1.title {
+        font-size: 200%;
+        font-weight: bold;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+        text-align: left;
+        border: none;
+}
+
+ul {
+        clear: both;
+        margin-top: 0;
+}
+dt code {
+        font-weight: bold;
+}
+dd p {
+        margin-top: 0;
+}
+
+#footer {
+        padding-top: 1em;
+        font-size: 70%;
+        color: gray;
+        text-align: center;
+        }
+@media print {
+       BODY {font-size: 9pt; line-height: 120%; background: white; width: 90%; }
+       @page { size: auto; margin: 10mm; }
+       h1, h2, h3, h4, h5 { page-break-after: avoid; }
+       #contact + ul li { font-size: 75%; }
+}
