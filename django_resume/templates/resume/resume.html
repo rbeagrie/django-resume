@@ -7,10 +7,39 @@
   <!--[if lt IE 9]>
     <script src="/static/js/html5shiv.js"></script>
   <![endif]-->
+  <link rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" href="{{ STATIC_URL }}css/main.css" />
   <link rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" href="{{ STATIC_URL }}css/resume.css" />
 </head>
-<body id="resume">
+<body>
 <div id="wrap">
+		<!-- main navigation -->
+		<nav class="navbar navbar-default navbar-fixed-top" id="main-nav" role="navigation">
+			<div class="container">
+				<!-- brand and toggle -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav-collapse">
+						<span class="sr-only">Toggle Navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>					
+				</div>
+
+				<!-- navigation links -->
+				<div class="collapse navbar-collapse main-nav-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="/#about-me">ABOUT ME</a></li>
+						<li><a href="/#research">RESEARCH</a></li>
+						<li><a href="/#media">MEDIA</a></li>
+                        <li class="active"><a href="/cv">CV</a></li>
+                        <li><a href="http://blog.rob.beagrie.com/">BLOG</a></li>
+						<li><a href="/#contact">CONTACT</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- end main navigation -->
+
 <div class="contentwrap">
 <div class="container_24">
 <section class="grid_20 prefix_2 suffix_2">
@@ -24,31 +53,31 @@
     </div>
     
     {% if personal_info.email %}
-    <div class="email">
+    <div class="info-email">
         Email: <a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a>
     </div>
     {% endif %}
     
     {% if personal_info.linkedin %}
-    <div class="linkedin">
+    <div class="info-linkedin">
         LinkedIn: <a href="{{ personal_info.linkedin }}">{{ personal_info.linkedin|slice:"11:" }}</a>
     </div>
     {% endif %}
     
     {% if personal_info.blog %}
-    <div class="blog">
+    <div class="info-blog">
         Blog: <a href="{{ personal_info.blog }}">{{ personal_info.blog|slice:"7:-1" }}</a>
     </div>
     {% endif %}
     
     {% if personal_info.twitter %}
-    <div class="twitter">
+    <div class="info-twitter">
         Twitter: <a href="http://twitter.com/{{ personal_info.twitter }}">@{{ personal_info.twitter }}</a>
     </div>
     {% endif %}
     
     {% if personal_info.github %}
-    <div class="github">
+    <div class="info-github">
         Github: <a href="http://github.com/{{ personal_info.github }}">{{ personal_info.github }}</a>
     </div>
     {% endif %}
