@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from django.contrib.sites.models import RequestSite
+from django.contrib.sites.requests import RequestSite
 from django.template import RequestContext
 from collections import OrderedDict
 

@@ -1,7 +1,8 @@
 # Resume App URLs file
 from django.conf.urls import patterns, url
+from . import views
 
 
-urlpatterns = patterns('django_resume.views',
-    url(r'^$', 'index', name='resume_home'),
-)
+urlpatterns = [
+    url(r'^$', views.index, name='resume_home'),
+]
