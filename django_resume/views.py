@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.contrib.sites.requests import RequestSite
 from django.template import RequestContext
 from collections import OrderedDict
@@ -16,11 +16,11 @@ def index(request):
 
     job_list = OrderedDict([ (jc.name, jc.job_set.all()) for jc in job_categories ])
 
-    return render_to_response('resume/resume.html', {
+    return render(request, 'resume/resume.html', {
         'site_name': site_name,
         'personal_info': personal_info,
         'overview' : overview,
         'job_list' : job_list,
         'education' : education,
         'skill_sets' : skill_sets,
- }, context_instance=RequestContext(request))
+    })
