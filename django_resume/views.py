@@ -4,7 +4,7 @@ from django.contrib.sites.requests import RequestSite
 from django.template import RequestContext
 from collections import OrderedDict
 
-from models import Overview, PersonalInfo, Education, Job, Accomplishment, Skillset, Skill, JobCategory
+from .models import Overview, PersonalInfo, Education, Job, Accomplishment, Skillset, Skill, JobCategory
 
 def index(request):
     site_name = RequestSite(request).domain

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from models import Overview, PersonalInfo, Education, Job,\
+from .models import Overview, PersonalInfo, Education, Job,\
     Accomplishment, Skillset, Skill, School, Company,\
     JobCategory
 
