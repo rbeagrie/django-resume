@@ -109,7 +109,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=250)),
                 ('location', models.CharField(max_length=250)),
                 ('school_url', models.URLField(verbose_name=b'School URL')),
-                ('education', models.ForeignKey(to='django_resume.Education')),
+                ('education', models.ForeignKey(on_delete=models.deletion.CASCADE, to='django_resume.Education')),
             ],
         ),
         migrations.CreateModel(
@@ -133,21 +133,21 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='skill',
             name='skillset',
-            field=models.ForeignKey(to='django_resume.Skillset'),
+            field=models.ForeignKey(on_delete=models.deletion.CASCADE, to='django_resume.Skillset'),
         ),
         migrations.AddField(
             model_name='job',
             name='category',
-            field=models.ForeignKey(default=1, to='django_resume.JobCategory'),
+            field=models.ForeignKey(on_delete=models.deletion.CASCADE, default=1, to='django_resume.JobCategory'),
         ),
         migrations.AddField(
             model_name='company',
             name='job',
-            field=models.ForeignKey(to='django_resume.Job'),
+            field=models.ForeignKey(on_delete=models.deletion.CASCADE, to='django_resume.Job'),
         ),
         migrations.AddField(
             model_name='accomplishment',
             name='job',
-            field=models.ForeignKey(to='django_resume.Job'),
+            field=models.ForeignKey(on_delete=models.deletion.CASCADE, to='django_resume.Job'),
         ),
     ]
