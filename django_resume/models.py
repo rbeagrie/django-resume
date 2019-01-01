@@ -80,7 +80,7 @@ class School(models.Model):
     name = models.CharField(max_length=250)
     location = models.CharField(max_length=250)
     school_url = models.URLField('School URL')
-    education = models.ForeignKey('Education', on_delete=model.CASCADE)
+    education = models.ForeignKey('Education', on_delete=models.CASCADE)
 
     def __unicode__(self):
         return self.name
