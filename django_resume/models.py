@@ -80,7 +80,7 @@ class School(models.Model):
     name = models.CharField(max_length=250)
     location = models.CharField(max_length=250)
     school_url = models.URLField('School URL')
-    education = models.ForeignKey('Education')
+    education = models.ForeignKey('Education', on_delete=model.CASCADE)
 
     def __unicode__(self):
         return self.name
@@ -101,7 +101,7 @@ class JobCategory(models.Model):
 
 class Job(models.Model):
 
-    category = models.ForeignKey(JobCategory, default=1)
+    category = models.ForeignKey(JobCategory, default=1, on_delete=models.CASCADE)
     title = models.CharField(max_length=250)
     description = models.TextField(blank=True)
     start_date = models.DateField()
@@ -146,7 +146,7 @@ class Job(models.Model):
 
 class Company(models.Model):
 
-    job = models.ForeignKey('Job')
+    job = models.ForeignKey('Job', on_delete=models.CASCADE)
     company = models.CharField(max_length=250)
     location = models.CharField(max_length=250)
     company_url = models.URLField('Company URL')
@@ -158,7 +158,7 @@ class Company(models.Model):
 
 class Accomplishment(models.Model):
     description = models.TextField()
-    job = models.ForeignKey(Job)
+    job = models.ForeignKey(Job, on_delete=models.CASCADE)
     order = models.IntegerField()
 
     class Meta:
@@ -177,7 +177,7 @@ class Skillset(models.Model):
 class Skill(models.Model):
     name =  models.CharField(max_length=250)
     skill_url = models.URLField('Skill URL', blank=True)
-    skillset = models.ForeignKey(Skillset)
+    skillset = models.ForeignKey(Skillset, on_delete=models.CASCADE)
     
     class Meta:
         ordering = ['id']
